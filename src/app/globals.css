@@ -1,26 +1,77 @@
 @import "tailwindcss";
+@source "../../node_modules/@heroui/theme/dist/**/*.js";
+@custom-variant dark (&:is(.dark *));
 
 :root {
+  /* MiLiga Design System - Colores Principales */
+  --green-field: #0f7a45;
+  --green-field-hover: #0c6339;
+  --green-lime: #7cff9b;
+  --gray-dark: #1f2933;
+
+  /* Estados */
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --error: #dc2626;
+  --info: #2563eb;
+
+  /* Tema claro */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: var(--gray-dark);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Colores MiLiga */
+  --color-green-field: var(--green-field);
+  --color-green-field-hover: var(--green-field-hover);
+  --color-green-lime: var(--green-lime);
+  --color-gray-dark: var(--gray-dark);
+
+  /* Estados */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+
+  /* Fuentes */
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-sora);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: var(--gray-dark);
+  --foreground: #ffffff;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Tipografía MiLiga */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sora), system-ui, sans-serif;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+}
+
+h2 {
+  font-weight: 600;
+  font-size: clamp(1.5rem, 4vw, 1.75rem);
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 1.25rem;
 }
